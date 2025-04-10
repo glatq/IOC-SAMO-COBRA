@@ -8,11 +8,11 @@ import multiprocessing
 from multiprocessing import freeze_support
 import numpy as np
 
-from cheap_SAMO_COBRA_Init import cheap_SAMO_COBRA_Init
-from cheap_SAMO_COBRA_PhaseII import cheap_SAMO_COBRA_PhaseII
-from hypervolume import hypervolume
+from .cheap_SAMO_COBRA_Init import cheap_SAMO_COBRA_Init
+from .cheap_SAMO_COBRA_PhaseII import cheap_SAMO_COBRA_PhaseII
+from .hypervolume import hypervolume
 
-from testFunctions.BNH import BNH
+from .testFunctions.BNH import BNH
 
 # example test function with two variables, two constraints, two objectives
 

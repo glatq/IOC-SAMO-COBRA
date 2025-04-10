@@ -5,19 +5,19 @@ Created on Mon Nov 27 10:48:42 2017
 @author: r.dewinter
 """
 
-from SACOBRA import plog
-from SACOBRA import plogReverse
-from SACOBRA import standardize_obj
-from SACOBRA import rescale_constr
+from .SACOBRA import plog
+from .SACOBRA import plogReverse
+from .SACOBRA import standardize_obj
+from .SACOBRA import rescale_constr
 
-from RbfInter import trainRBF
-from RbfInter import interpRBF
-from RbfInter import distLine
+from .RbfInter import trainRBF
+from .RbfInter import interpRBF
+from .RbfInter import distLine
 
-from lhs import lhs
-from hypervolume import hypervolume
-from paretofrontFeasible import paretofrontFeasible
-from visualiseParetoFront import visualiseParetoFront
+from .lhs import lhs
+from .hypervolume import hypervolume
+from .paretofrontFeasible import paretofrontFeasible
+from .visualiseParetoFront import visualiseParetoFront
 
 import numpy as np
 import time

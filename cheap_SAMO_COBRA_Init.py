@@ -10,16 +10,16 @@ import multiprocessing as mp
 import time
 from functools import partial
 
-from SACOBRA import scaleRescale
-from SACOBRA import rescaleWrapper
-from SACOBRA import standardize_obj
-from SACOBRA import rescale_constr
-from SACOBRA import plog
-from lhs import lhs
-from halton import halton
-from transformLHS import transformLHS
-from paretofrontFeasible import paretofrontFeasible
-from hypervolume import hypervolume
+from .SACOBRA import scaleRescale
+from .SACOBRA import rescaleWrapper
+from .SACOBRA import standardize_obj
+from .SACOBRA import rescale_constr
+from .SACOBRA import plog
+from .lhs import lhs
+from .halton import halton
+from .transformLHS import transformLHS
+from .paretofrontFeasible import paretofrontFeasible
+from .hypervolume import hypervolume
 
 
 def newfn(x, fn=None, newlower=None, newupper=None, lower=None, upper=None):
