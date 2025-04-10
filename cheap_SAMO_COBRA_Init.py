@@ -112,9 +112,9 @@ def cheap_SAMO_COBRA_Init(
         raise ValueError("feval should be larger then initial sample size")
 
     I = np.empty((1, 1))
-    I[:] = np.NaN
+    I[:] = np.nan
     Gres = np.empty((1, 1))
-    Gres[:] = np.NaN
+    Gres[:] = np.nan
     Fres = []
 
     np.random.seed(cobraSeed)
@@ -177,7 +177,7 @@ def cheap_SAMO_COBRA_Init(
     Fres, Gres, res_time = randomResultsFactory(I, fnn, nConstraints, nObj, pool, batch)
 
     hypervolumeProgress = np.empty((len(Fres), 1))
-    hypervolumeProgress[:] = np.NAN
+    hypervolumeProgress[:] = np.nan
     for i in range(len(Fres)):
         paretoOptimal = np.array([False] * (len(Fres)))
         paretoOptimal[: i + 1] = paretofrontFeasible(Fres[: i + 1, :], Gres[: i + 1, :])
@@ -320,8 +320,8 @@ def cheap_SAMO_COBRA_Init(
 def randomResultsFactory(I, fn, nConstraints, nObj, pool, batch):
     objs = np.empty((len(I), nObj))
     constr = np.empty((len(I), nConstraints))
-    objs[:] = np.NaN
-    constr[:] = np.NaN
+    objs[:] = np.nan
+    constr[:] = np.nan
     res_time = []
     if pool is None:
         res = []
