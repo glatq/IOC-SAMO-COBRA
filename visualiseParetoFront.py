@@ -12,13 +12,13 @@ def visualizeParetoFront3d(results):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection="3d")
     ax.scatter(results[:, 0], results[:, 1], results[:, 2])
-    plt.show()
-
+    plt.savefig("Pareto_front_ioc_samo_cobra.pdf", format="pdf", bbox_inches="tight")
+    plt.close()
 
 def visualizeParetoFront2d(results):
     plt.plot(results[:, 0], results[:, 1], "ro")
-    plt.show()
-
+    plt.savefig("Pareto_front_ioc_samo_cobra.pdf", format="pdf", bbox_inches="tight")
+    plt.close()
 
 def visualiseParetoFront(results):
     if results.shape[1] == 3:
