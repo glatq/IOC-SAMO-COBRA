@@ -9,8 +9,8 @@ import numpy as np
 class BNH:
 
     def __init__(self):
-        self.lower = np.array([0, 0])
-        self.upper = np.array([5, 3])
+        self.lower = np.array([0.0, 0.0])
+        self.upper = np.array([5.0, 3.0])
         self.nConstraints = 2
         self.nObj = 2
         self.ref = np.array([140, 50])
@@ -22,7 +22,7 @@ class BNH:
         f1 = 4 * x[0] ** 2 + 4 * x[1] ** 2
         f2 = (x[0] - 5) ** 2 + (x[1] - 5) ** 2
 
-        c1 = -1 * ((x[0] - 5) ** 2 + x[1] - 25)
+        c1 = -1 * ((x[0] - 5) ** 2 + x[1] ** 2 - 25)
         c2 = (x[0] - 8) ** 2 + (x[1] - 3) ** 2 - 7.7
 
         return [np.array([f1, f2]), -1 * np.array([c1, c2])]
