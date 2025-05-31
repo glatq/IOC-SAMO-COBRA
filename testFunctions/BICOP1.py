@@ -25,9 +25,9 @@ class BICOP1:
         f1 = x[0] * g1
         f2 = g1 - np.sqrt(f1 / g1)
 
-        c1 = g1
+        c1 = -1 * g1
         # -1* constr because of sacobra's constraint handling
-        return [np.array([f1, f2]), -1 * np.array([c1])]
+        return [np.array([f1, f2]), np.array([c1])]
 
     def cheap_evaluate(self, x):
         x = np.array(x)

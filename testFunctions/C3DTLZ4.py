@@ -24,7 +24,7 @@ class C3DTLZ4:
         x = np.array(x)
         gx = np.sum((x[1:] - 0.5) ** 2)
 
-        f1 = (1 + (gx)) * np.cos(x[0] * np.pi / 2)
+        f1 = (1 + (gx)) * np.cos(x[1] * np.pi / 2)
         f2 = (1 + (gx)) * np.sin(x[0] * np.pi / 2)
 
         c1 = (f1**2) / 4 + f2**2 - 1

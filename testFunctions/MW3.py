@@ -20,7 +20,7 @@ class MW3:
 
     def evaluate(self, x):
         g3 = 1
-        for i in range(2, len(x)):
+        for i in range(1, len(x)):
             g3 += 2 * (x[i] + (x[i - 1] - 0.5) ** 2 - 1) ** 2
         f1 = x[0]
         f2 = g3 * (1 - f1 / g3)

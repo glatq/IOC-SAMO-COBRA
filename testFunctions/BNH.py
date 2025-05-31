@@ -22,10 +22,10 @@ class BNH:
         f1 = 4 * x[0] ** 2 + 4 * x[1] ** 2
         f2 = (x[0] - 5) ** 2 + (x[1] - 5) ** 2
 
-        c1 = -1 * ((x[0] - 5) ** 2 + x[1] ** 2 - 25)
-        c2 = (x[0] - 8) ** 2 + (x[1] - 3) ** 2 - 7.7
+        c1 = (x[0] - 5) ** 2 + x[1] ** 2 - 15
+        c2 = 7.7 - (x[0] - 8) ** 2 - (x[1] + 3) ** 2
 
-        return [np.array([f1, f2]), -1 * np.array([c1, c2])]
+        return [np.array([f1, f2]), np.array([c1, c2])]
 
     def cheap_evaluate(self, x):
         if self.cheapObj[0]:
@@ -38,11 +38,11 @@ class BNH:
             f2 = np.nan
 
         if self.cheapConstr[0]:
-            c1 = -1 * ((x[0] - 5) ** 2 + x[1] - 25)
+            c1 = (x[0] - 5) ** 2 + x[1] - 25
         else:
             c1 = np.nan
         if self.cheapConstr[1]:
-            c2 = (x[0] - 8) ** 2 + (x[1] - 3) ** 2 - 7.7
+            c2 = 7.7 - (x[0] - 8) ** 2 - (x[1] + 3) ** 2
         else:
             c2 = np.nan
 

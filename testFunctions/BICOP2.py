@@ -21,21 +21,21 @@ class BICOP2:
         self.cheapObj = [False, False]
 
     def evaluate(self, x):
-        a = 0.1
+        a = 0.5
         b = 0.9
 
-        gx = np.sum(x[1:] - np.sin(0.5 * np.pi * x[0])) ** 2
+        gx = np.sum((x[1:] - np.sin(0.5 * np.pi * x[0])) ** 2)
 
         f1 = x[0] + gx
         f2 = 1 - x[0] ** 2 + gx
 
-        g1 = gx - a
-        g2 = b - gx
+        g1 = a - gx
+        g2 = gx - b
 
         c1 = g1
         c2 = g2
         # -1* constr because of sacobra's constraint handling
-        return [np.array([f1, f2]), -1 * np.array([c1, c2])]
+        return [np.array([f1, f2]), np.array([c1, c2])]
 
     def cheap_evaluate(self, x):
         a = 0.1

@@ -29,8 +29,8 @@ class MW1:
     def evaluate(self, x):
         n = len(x)
         g1 = 1  # + np.sum((1-np.exp(-10*(x[2:]-0.5-(i-1)/(2*n))**2)))
-        for i in range(2, n):
-            g1 += np.sum(1 - np.exp(-10 * (x[i] - 0.5 - (i - 1) / (2 * n)) ** 2))
+        for i in range(1, n):
+            g1 += np.sum(1 - np.exp(-10 * ((x[i] ** (n - 2)) - 0.5 - (i - 1) / (2 * n)) ** 2))
 
         f1 = x[0]
         f2 = g1 * (1 - 0.85 * f1 / g1)

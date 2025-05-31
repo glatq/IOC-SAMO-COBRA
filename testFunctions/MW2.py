@@ -21,7 +21,7 @@ class MW2:
     def evaluate(self, x):
         n = len(x)
         g2 = 1
-        for i in range(2, n):
+        for i in range(1, n):
             zi = 1 - np.exp(-10 * ((x[i] - (i - 1) / n)) ** 2)
             g2 += 1.5 + (0.1 / n) * zi**2 - 1.5 * np.cos(2 * np.pi * zi)
 
