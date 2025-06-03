@@ -23,7 +23,7 @@ class TNK:
         f2 = x[1]
 
         c1 = x[0] ** 2 + x[1] ** 2 - 1 - 0.1 * np.cos(16 * np.arctan(x[1] / x[0]))
-        c2 = -1 * ((x[0] - 0.5) ** 2 + (x[1] - 0.5) ** 2 - 0.5)
+        c2 = (x[0] - 0.5) ** 2 + (x[1] - 0.5) ** 2 - 0.5
 
         # -1* constr because of sacobra's constraint handling
         return [np.array([f1, f2]), -1 * np.array([c1, c2])]
