@@ -17,7 +17,7 @@ import numpy as np
 
 class DBD:
     def __init__(self):
-        self.lower = np.array([55, 75, 500, 2])
+        self.lower = np.array([55, 75, 1000, 2])
         self.upper = np.array([80, 110, 3000, 20])
         self.nConstraints = 5
         self.nObj = 2

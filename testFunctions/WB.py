@@ -26,11 +26,11 @@ class WB:
     def __init__(self):
         self.lower = np.array([0.125, 0.1, 0.1, 0.125])
         self.upper = np.array([5, 10, 10, 5])
-        self.nConstraints = 5
+        self.nConstraints = 4
         self.nObj = 2
         self.ref = np.array([350, 0.1])
         self.nadir = np.array([53.72, 0.0145])
-        self.cheapConstr = [True, True, True, True, True, True]
+        self.cheapConstr = [True, True, True, True, True]
         self.cheapObj = [False, False]
 
     def evaluate(self, x):
@@ -46,28 +46,25 @@ class WB:
         tauMax = 13600
         sigmaMax = 30000
 
-        Pc = ((4.013 * E * np.sqrt(((x3**2) * (x4**6)) / 36)) / L**2) * (
-            1 - (x3 / (2 * L)) * np.sqrt(E / (4 * G))
-        )
+        Pc = 64746.022 * (1 - 0.0282346 * x3) * x3 * x4 ** 3
         delta = (4 * P * (L**3)) / (E * x4 * (x3) ** 3)
         M = P * (L + x2 / 2)
-        R = np.sqrt(((x2**2) / 4) + ((x1 + x3) / 2) ** 2)
-        J = 2 * (np.sqrt(2) * x1 * x2 * ((x2**2) / 12 + ((x1 + x3) / 2) ** 2))
+        R = np.sqrt(0.25 * (x2 ** 2 + (x1 + x3) ** 2))
+        J = 2 * np.sqrt(0.5) * x1 * x2 * (x2 ** 2 / 12 + 0.25 * (x1 + x3) ** 2)
         sigma = (6 * P * L) / (x4 * (x3**2))
         tauA = P / (np.sqrt(2) * x1 * x2)
         tauAA = M * R / J
-        tau = np.sqrt(tauA**2 + (2 * tauA * tauAA * x2) / (2 * R) + tauAA**2)
+        tau = np.sqrt(tauA**2 + tauAA**2 + (tauA * tauAA * x2) / R)
 
         f1 = 1.10471 * (x1**2) * x2 + 0.04811 * x3 * x4 * (14 + x2)
         f2 = delta
 
-        g1 = tau - tauMax
-        g2 = sigma - sigmaMax
-        g3 = x1 - x4
-        g4 = 0.125 - x1
-        g5 = P - Pc
+        g1 = tau / tauMax - 1
+        g2 = sigma / sigmaMax - 1
+        g3 = (x1 - x4) / (5 - 0.125)
+        g4 = 1 - Pc / P
 
-        return [np.array([f1, f2]), np.array([g1, g2, g3, g4, g5])]
+        return [np.array([f1, f2]), np.array([g1, g2, g3, g4])]
 
     def cheap_evaluate(self, x):
         x1 = x[0]
